@@ -33,6 +33,14 @@ export default {
   text-align: center;
   color: $white;
 
+  .container {
+    transform: translateY(-10%);
+
+    @media (min-width: $screen-lg-min) {
+      transform: translateY(0%);
+    }
+  }
+
   .title-lockup {
     margin-bottom: 40px;
   }

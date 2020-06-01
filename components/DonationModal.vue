@@ -77,11 +77,12 @@ body.modal-open {
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0.32, 0.15, 0.85);
+  transition: opacity 400ms cubic-bezier(0.4, 0.32, 0.15, 0.85);
 
   &.is-open {
     opacity: 1;
     pointer-events: auto;
+    transition-duration: 250ms;
   }
 
   .dialog {

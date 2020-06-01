@@ -40,16 +40,21 @@ export default {
 .intro-image {
   flex: 1;
   align-self: flex-start;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  height: 60vh;
+  overflow: hidden;
 
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
-    filter: saturate(0) brightness(1.6)
+    filter: saturate(0) brightness(1.6);
+  }
+
+  @media (min-width: $screen-lg-min) {
+    height: 100vh;
+    position: sticky;
+    top: 0;    
   }
 }
 
@@ -58,19 +63,18 @@ export default {
   background-color: $green;
   color: $white;
   text-align: center;
-  font-size: 21px;
+  font-size: 17px;
   line-height: 1.6;
-  padding: 160px 0;
+  padding: 100px 0;
   
 
   .container {
-    padding: 0 60px;
     max-width: 600px;
     margin: 0 auto;
   }
 
   h2 {
-    font-size: 33px;
+    font-size: 24px;
     margin-bottom: 20px;
   }
 
@@ -86,11 +90,25 @@ export default {
     margin-top: 4rem;
   }
 
+  @media (min-width: $screen-sm-min) {
+    font-size: 21px;
+
+    h2 {
+      font-size: 33px;
+    }
+  }  
+
   @media (min-width: $screen-md-min) {
+    padding: 160px 0;
+
     h2 {
       font-size: 43px;
       margin-bottom: 13px;
     }
+
+    .container {
+      padding: 0 60px;
+    }    
   }
 
   @media (min-width: $screen-lg-min) {

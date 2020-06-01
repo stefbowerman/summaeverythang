@@ -8,12 +8,12 @@
 <style lang="scss">
 .title-lockup {
   h1 {
-    font-size: 34px;
+    font-size: 25px;
     margin-bottom: -0.02em;
   }
 
   h4 {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 0;
   }
 

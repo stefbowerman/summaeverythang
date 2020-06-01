@@ -1,7 +1,9 @@
 <template>
   <footer>
     <div class="footer-contents">
-      <DonateButton />
+      <div class="container">
+        <DonateButton />
+      </div>
     </div>
     <div class="video-bg">
       <div class="screen"></div>
@@ -58,8 +60,9 @@ footer {
       left: 0;
       height: 100%;
       width: 100%;
-      background-color: $dark-green;
-      mix-blend-mode: color;
+      background-color: #2d4821;
+      // mix-blend-mode: color;
+      mix-blend-mode: hard-light;
     }
 
     iframe {

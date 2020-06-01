@@ -124,7 +124,7 @@ export default {
   padding: 0 $site-gutter;
 
   h2 {
-    font-size: 27px;
+    font-size: 21px;
     margin: 0;
     text-transform: none;
     letter-spacing: 0.05em;
@@ -137,7 +137,7 @@ export default {
 
 .news-block__content-title {
   margin-bottom: 18px;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .news-block__body {
