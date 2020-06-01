@@ -1,0 +1,109 @@
+@import 'variables';
+@import 'reboot';
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+h1, h2, h3 {
+  letter-spacing: 0.02em;
+}
+
+h4, h5, h6 {
+  letter-spacing: 0.3em;
+}
+
+.container {
+  padding: 0 $site-gutter;
+}
+
+.pill {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: $border-radius;
+  color: $white;
+  background-color: $green;
+  font-size: 22px;
+  line-height: 1.2;
+  // background-image: linear-gradient(0deg, darken($green, 4%), $green);
+
+  @media (min-width: $screen-md-min) {
+    font-size: 26px;
+  }
+
+  &.pill--lg {
+    padding: 26px 20px;
+
+    @media (min-width: $screen-md-min) {
+      padding: 36px 28px;      
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  color: $green;
+  background-color: $white;
+  border: none;
+  padding: 16px 80px;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 100px;
+  transition: {
+    duration: 200ms;
+    property: background-color, color, transform;
+    timing-function: cubic-bezier(0.35, 0.25, 0.39, 0.96);
+  }
+
+  &:hover {
+    color: darken($green, 5%);
+    background-color: $white;
+    transform: scale(1.01);
+    transition-duration: 120ms;
+    transition-timing-function: cubic-bezier(0.17, 0.32, 0.09, 0.88);
+  }
+
+  &:focus {
+    outline: 0
+  }
+
+  &.btn-sm {
+    font-size: 27px;
+  }
+
+  &.btn-green {
+    background-color: $green;
+    color: $white;
+
+    &:hover {
+      background-color: darken($green, 5%);
+    }
+  }
+
+  &.btn-paypal {
+    background-color: $paypal;
+    color: $white;
+
+    &:hover {
+      background-color: darken($paypal, 5%);
+    }
+  }
+  &.btn-venmo {
+    background-color: $venmo;
+    color: $white;
+
+    &:hover {
+      background-color: darken($venmo, 5%);
+    }
+  }
+  &.btn-stripe {
+    background-color: $stripe;
+    color: $white;
+
+    &:hover {
+      background-color: darken($stripe, 5%);
+    }
+  }
+}
