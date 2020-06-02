@@ -32,6 +32,9 @@ export default {
       }
     }
   },
+  mounted() {
+    // check scroll, pause the video when not playing
+  },
   methods: {
     onIntersectionEnter() {
       this.$refs.player.play();

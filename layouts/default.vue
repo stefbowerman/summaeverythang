@@ -25,10 +25,16 @@ export default {
     }
   },
   mounted() {
-    this.$refs.audio.volume = 0.5;
-    
-    document.addEventListener('touchstart', () => {
-      this.$refs.audio.play();
+    const audio = this.$refs.audio;
+
+    audio.volume = 0.5;
+
+    audio.addEventListener('canplay', () => {
+      audio.play();
+      
+      document.addEventListener('touchstart', () => {
+        audio.play();
+      });
     });
   }
 }

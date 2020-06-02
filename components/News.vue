@@ -1,5 +1,12 @@
 <template>
-  <div class="news">
+  <div :class="newsClasses" ref="news">
+    <div class="news-background">
+      <div class="screen"></div>
+      <no-ssr>
+        <vimeo-player ref="player" :video-id="424652543" :options="videoOptions" />
+      </no-ssr>            
+    </div>
+
     <div class="news-block">
       <div class="news-block__topper">
         <div class="news-block__meta">On May 30, 2020</div>
@@ -12,7 +19,7 @@
       </div>
 
       <div class="news-block__content">
-        <div :class="newsBodyClasses" ref="newsBody">
+        <div class="news-block__body">
           <div class="news-block__body-text">
             <h3>The contents of these boxes included:</h3>
             <p>312 bunches of kale</p>
@@ -51,19 +58,11 @@
             <p>300 lbs rice</p>
             <p>300 lbs of black beans</p>
           </div>
-
-          <div class="news-block__body-background">
-            <div class="screen"></div>
-            <no-ssr>
-              <vimeo-player ref="player" :video-id="424652543" :options="videoOptions" />
-            </no-ssr>            
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Quick and dirty way of hiding the sticky video -->
-    <div class="news-block" style="position: relative; z-index: 1;">
+    <div class="news-block">
       <div class="news-block__topper">
         <div class="news-block__meta">On May 16, 2020</div>
         <div class="news-block__title">
@@ -73,6 +72,39 @@
         </div>
         <img src="~/assets/news-bg-1.jpg" class="news-block__topper-bg" />
       </div>
+
+      <div class="news-block__content">
+        <div class="news-block__body">
+          <div class="news-block__body-text">
+            <h3>Contents included Organic:</h3>
+            <p>Kale Bunch</p>
+            <p>Lettuce Romaine Heart</p>
+            <p>Bell Pepper</p>
+            <p>Cucumber</p>
+            <p>Butternut Squash</p>
+            <p>Tomato Roma</p>
+            <p>Onion</p>
+            <p>Potatoes Red Small</p>
+            <p>Broccoli</p>
+            <p>Carrots</p>
+            <p>Blueberry 6oz Baskets</p>
+            <p>Oranges</p>
+            <p>Lemons</p>
+            <p>Mango</p>
+            <p>Bananas</p>
+            <p>Strawberries</p>
+            <p>Mint</p>
+            <p>Rosemary</p>
+            <p>Cilantro</p>
+            <p>Apple Fuji</p>
+            <p>Raspberries 6oz Baskets</p>
+            <p>Oregano</p>
+            <p>Chives</p>
+            <p>Arugula</p>
+            <p>Basil</p>
+          </div>
+        </div>
+      </div>
     </div>    
   </div>
 </template>
@@ -81,7 +113,8 @@
 export default {
   data() {
     return {
-      newsBodySticky: false,
+      inView: false,
+      isSticky: false,
       videoOptions: {
         background: true,
         loop: true
@@ -89,10 +122,11 @@ export default {
     }
   },
   computed: {
-    newsBodyClasses() {
+    newsClasses() {
       return [
-        'news-block__body',
-        { 'is-sticky': this.newsBodySticky }
+        'news',
+        { 'in-view': this.inView },
+        { 'is-sticky': this.isSticky },
       ]
     }
   },
@@ -104,14 +138,10 @@ export default {
   },
   methods: {
     onScroll(e) {
-      const boundingRectTop = this.$refs.newsBody.getBoundingClientRect().top; 
+      const boundingRectTop = this.$refs.news.getBoundingClientRect().top;
 
-      if (boundingRectTop <= 0) {
-        this.newsBodySticky = true;
-      }
-      else {
-        this.newsBodySticky = false;
-      }
+      this.isSticky = boundingRectTop <= 0;
+      this.inView = boundingRectTop <= window.innerHeight; // This isn't great since it only takes the top part of the element into account but it's fone because the only thing that comes after is the footer and that slides over
     }
   }
 }
@@ -120,6 +150,7 @@ export default {
 <style lang="scss">
 .news {
   background-color: $white;
+  position: relative;
 }
 
 .news-block {
@@ -189,13 +220,18 @@ export default {
   }
 }
 
-.news-block__body-background {
+.news-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  display: none;
+
+  .in-view & {
+    display: block;
+  }
 
   .is-sticky & {
     position: fixed;
@@ -231,13 +267,9 @@ export default {
   }
 
   .news-block__title {
-    max-width: 1450px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 10vw;
-
-    h2 {
-      font-size: 35px;
-    }
   }
 
   .news-block__content-title {
