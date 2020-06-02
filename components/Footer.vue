@@ -5,9 +5,14 @@
         <DonateButton />
       </div>
     </div>
+    <div class="contact">
+      contact - <a href="mailto:laurenmane@gmail.com" target="_blank">laurenmane@gmail.com</a>
+    </div>    
     <div class="video-bg">
       <div class="screen"></div>
-      <iframe src="https://player.vimeo.com/video/424652735?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <no-ssr>
+        <vimeo-player ref="player" :video-id="424652735" :options="videoOptions" />
+      </no-ssr>
     </div>
   </footer>
 </template>
@@ -18,6 +23,22 @@ import DonateButton from '~/components/DonateButton.vue'
 export default {
   components: {
     DonateButton
+  },
+  data() {
+    return {
+      videoOptions: {
+        background: true,
+        loop: true
+      }
+    }
+  },
+  methods: {
+    onIntersectionEnter() {
+      this.$refs.player.play();
+    },
+    onIntersectionLeave() {
+      this.$refs.player.pause();
+    }
   }
 }
 </script>
@@ -40,8 +61,20 @@ footer {
   .donate-button__text {
     font-size: 13px;
     max-width: 34em;
-    margin: 1em auto 0;
+    margin: 2em auto 0;
   }
+
+  .contact {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Courier';
+    color: $white;
+  }  
 
   .video-bg {
     position: absolute;

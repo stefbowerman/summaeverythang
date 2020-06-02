@@ -24,12 +24,7 @@ export default {
   */
   css: [
     '~/styles/app.scss'
-  ],  
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
+  ], 
   /*
   ** Nuxt.js dev-modules
   */
@@ -48,7 +43,10 @@ export default {
     scss: [
       '~/styles/_variables.scss'
     ]
-  },  
+  },
+  plugins: [
+    { src: `~plugins/vimeoPlayer`, ssr: false }
+  ],
   /*
   ** Build configuration
   */
@@ -71,6 +69,9 @@ export default {
           audio: 'src'
         }
       }
-    }
+    },
+    vendor: [
+      'vue-vimeo-player'
+    ]
   }
 }

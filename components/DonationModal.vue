@@ -67,7 +67,7 @@ body.modal-open {
   height: 100vh;
   width: 100vw;
   background: $pale-pink;
-  background-image: linear-gradient(0deg, #65a16a, #d06564);
+  background-image: $red-green-gradient;
   color: $white;
 
   display: flex;
@@ -77,12 +77,13 @@ body.modal-open {
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 400ms cubic-bezier(0.4, 0.32, 0.15, 0.85);
+  transition: opacity 400ms cubic-bezier(0.4, 0.32, 0.15, 0.85) 100ms;
 
   &.is-open {
     opacity: 1;
     pointer-events: auto;
     transition-duration: 250ms;
+    transition-delay: 0s;
   }
 
   .dialog {
@@ -100,12 +101,12 @@ body.modal-open {
     transform: translateY(8px);
     transition: transform 500ms cubic-bezier(0.21, 0.16, 0.07, 0.92),
                 opacity 300ms ease-out;
-    transition-delay: 200ms;
   }
 
   &.is-open .dialog {
     opacity: 1;
     transform: translateY(0);
+    transition-delay: 200ms;
   }
 
   .donation-options {
@@ -135,6 +136,13 @@ body.modal-open {
     padding: 18px;
     display: inline-block;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  &.is-open .close {
+    opacity: 1;
+    transition-delay: 200ms;
   }
 }
 

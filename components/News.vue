@@ -8,12 +8,13 @@
             <h2>Summaeverythang Community Center donated 300+ free organic produce boxes to folks in Watts.</h2>
           </div>
         </div>
+        <img src="~/assets/news-bg-2.jpg" class="news-block__topper-bg" />
       </div>
 
       <div class="news-block__content">
-        <div class="news-block__content-title">The contents of these boxes included</div>
         <div :class="newsBodyClasses" ref="newsBody">
           <div class="news-block__body-text">
+            <h3>The contents of these boxes included:</h3>
             <p>312 bunches of kale</p>
             <p>312 heads of romaine lettuce</p>
             <p>300 bell peppers</p>
@@ -53,14 +54,16 @@
 
           <div class="news-block__body-background">
             <div class="screen"></div>
-            <iframe src="https://player.vimeo.com/video/424652543?background=1" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <no-ssr>
+              <vimeo-player ref="player" :video-id="424652543" :options="videoOptions" />
+            </no-ssr>            
           </div>
         </div>
       </div>
     </div>
 
     <!-- Quick and dirty way of hiding the sticky video -->
-    <div class="news-block" style="position: relative">
+    <div class="news-block" style="position: relative; z-index: 1;">
       <div class="news-block__topper">
         <div class="news-block__meta">On May 16, 2020</div>
         <div class="news-block__title">
@@ -68,6 +71,7 @@
             <h2>Summaeverythang Community Center donated 200 free organic produce boxes to folks in Watts.</h2>
           </div>
         </div>
+        <img src="~/assets/news-bg-1.jpg" class="news-block__topper-bg" />
       </div>
     </div>    
   </div>
@@ -77,7 +81,11 @@
 export default {
   data() {
     return {
-      newsBodySticky: false
+      newsBodySticky: false,
+      videoOptions: {
+        background: true,
+        loop: true
+      }
     }
   },
   computed: {
@@ -96,7 +104,14 @@ export default {
   },
   methods: {
     onScroll(e) {
-      this.newsBodySticky = (this.$refs.newsBody.getBoundingClientRect().top <= 0);
+      const boundingRectTop = this.$refs.newsBody.getBoundingClientRect().top; 
+
+      if (boundingRectTop <= 0) {
+        this.newsBodySticky = true;
+      }
+      else {
+        this.newsBodySticky = false;
+      }
     }
   }
 }
@@ -110,10 +125,28 @@ export default {
 .news-block {
   text-align: center;
   background-color: $white;
+
+  .pill {
+    background-image: $red-green-short-gradient;
+  }
 }
 
 .news-block__topper {
+  position: relative;
+  z-index: 1;
   padding: 80px 0 100px;
+  color: $white;
+}
+
+.news-block__topper-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0) brightness(0.7);
 }
 
 .news-block__meta {
@@ -133,11 +166,6 @@ export default {
 
 .news-block__content {
   // margin-top: 13rem;
-}
-
-.news-block__content-title {
-  margin-bottom: 18px;
-  font-size: 16px;
 }
 
 .news-block__body {
@@ -203,6 +231,8 @@ export default {
   }
 
   .news-block__title {
+    max-width: 1450px;
+    margin: 0 auto;
     padding: 0 10vw;
 
     h2 {
@@ -217,20 +247,14 @@ export default {
 
   .news-block__body-text {
     font-size: 40px;
-    line-height: 1;
+    line-height: 1.3;
   }
 }
 
-@media (min-width: $screen-lg-min) {
-  .news-block__title {
-    h2 {
-      font-size: 53px;
-    }
-  }
-
-  .news-block__body-text {
-    font-size: 60px;
-    line-height: 1;
-  }
-}
+// @media (min-width: $screen-lg-min) {
+//   .news-block__body-text {
+//     font-size: 60px;
+//     line-height: 1;
+//   }
+// }
 </style>

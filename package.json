@@ -11,7 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "intersection-observer": "^0.10.0",
+    "nuxt": "^2.0.0",
+    "nuxt-polyfill": "^1.0.3",
+    "vue-intersect": "^1.1.6",
+    "vue-vimeo-player": "^0.1.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

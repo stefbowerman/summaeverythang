@@ -3,7 +3,7 @@
     <div class="intro-text">
       <div class="container">
         <h2>Summaeverythang</h2>
-        <p>is a community center based in South Central Los Angeles dedicated to the transcendence, advancement and empowerment of black and brown folks socio-politically and econotmically, intellectually and artistically.</p>
+        <p>is a community center based in South Central Los Angeles dedicated to the empowerment and transcendence of black and brown folks socio-politically and economically, intellectually and artistically.</p>
         <p>Summaeverythang Community Center was founded in 2019 by artist and fantasy architect, Lauren Halsey.</p>
         <DonateButton />
       </div>
@@ -29,11 +29,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $green;
-  color: $white;
 
   @media (min-width: $screen-md-min) {
     flex-direction: row;
+    align-items: stretch;
   }
 }
 
@@ -59,14 +58,17 @@ export default {
 }
 
 .intro-text {
+  display: flex;
+  align-items: center;
   flex: 1.3;
   background-color: $green;
+  background-image: $red-green-gradient;
   color: $white;
   text-align: center;
   font-size: 17px;
   line-height: 1.6;
   padding: 100px 0;
-  
+  letter-spacing: 0.04em;
 
   .container {
     max-width: 600px;
@@ -116,6 +118,7 @@ export default {
 
     font-size: 26px;
     line-height: 1.4;
+    letter-spacing: 0;
 
     .container {
       max-width: none;

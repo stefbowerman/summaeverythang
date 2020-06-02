@@ -4,7 +4,7 @@
       <div class="titles">
         <TitleLockup />
       </div>
-      <div class="pill">Free organic produce box donation for Watts and South Central Los Angeles</div>
+      <div class="pill">Free organic produce box donations for Watts and South Central Los Angeles</div>
     </div>
     <div class="bg">
       <img src="~/assets/background-website-foto.jpg" class="wallpaper" />
