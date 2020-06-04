@@ -23,11 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 .hero {
   margin: 0 auto;
   padding: 50px 0;
@@ -63,10 +58,6 @@ export default {
     height: 100vh;
     width: 100vw;
     background-color: #49474a;
-
-    img {
-      animation: fadeIn 1s ease-out 500ms;
-    }
   }  
 
   .wallpaper {
