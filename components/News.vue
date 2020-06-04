@@ -181,10 +181,6 @@ export default {
   filter: saturate(0) brightness(0.7);
 }
 
-.news-block__meta {
-  margin-bottom: 15px;
-}
-
 .news-block__title {
   padding: 0 $site-gutter;
 
@@ -198,7 +194,7 @@ export default {
   .meta {
     font-family: 'Courier', monospace;
     font-size: 13px;
-    margin: -2px 0 7px;
+    margin: -9px 0 7px;
   }
 }
 

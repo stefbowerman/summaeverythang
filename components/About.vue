@@ -12,7 +12,7 @@
         </no-ssr>
       </div>
     </div>
-    <span class="btn btn-green btn-sm" @click="openAboutModal()">Learn More</span>
+    <span class="btn btn-red btn-sm" @click="openAboutModal()">Learn More</span>
   </div>
 </template>
 
@@ -26,7 +26,9 @@ export default {
         byline: false,
         portrait: false,
         playsinline: true,
-        loop: true
+        loop: true,
+        muted: true,
+        color: '65a16a'
       }
     }
   },
@@ -51,7 +53,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: black;
-  background-image: $red-green-dark-gradient;
+  background-image: $red-green-gradient;
   padding: 120px 0 70px;
 
   @media (min-width: $screen-md-min) {

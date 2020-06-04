@@ -34,19 +34,6 @@ export default {
       playText: ''
     }
   },
-  computed: {
-    videoPlaying() {
-      return this.$store.state.videoPlaying;
-    }
-  },
-  watch: {
-    videoPlaying(newValue, oldValue) {
-      // If the video is playing, pause the audio
-      if(newValue) {
-        this.$refs.audio.pause();
-      }
-    }
-  },
   mounted() {
     this.$refs.audio.volume = 0.5;
 
