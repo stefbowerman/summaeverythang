@@ -52,9 +52,14 @@ export default {
   justify-content: center;
   background-color: black;
   background-image: $red-green-dark-gradient;
-  padding: 100px $site-gutter;
+  padding: 120px 0 70px;
 
   @media (min-width: $screen-md-min) {
+    padding-left: $site-gutter;
+    padding-right: $site-gutter;
+  }
+
+  @media (min-width: $screen-xl-min) {
     padding: 100px;    
   }
 

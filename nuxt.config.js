@@ -8,7 +8,7 @@ export default {
     title: 'Summaeverythang - Community Center',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { hid: 'description', name: 'description', content: 'Summaeverythang is a community center based in South Central Los Angeles dedicated to the transcendence, advancement and empowerment of black and brown folks socio-politically and econotmically, intellectually and artistically.' },
       { property:  'og:image', content: '/share.jpg' }
     ],

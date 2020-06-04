@@ -151,6 +151,7 @@ export default {
 .news {
   background-color: $dark-green;
   position: relative;
+  overflow: hidden;
 }
 
 .news-block {
