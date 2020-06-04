@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'reboot';
+@import 'modal';
 
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
@@ -19,12 +20,17 @@ h4, h5, h6 {
 
 .pill {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 17px;
   border-radius: $border-radius;
   color: $white;
   background-color: $green;
   font-size: 17px;
   line-height: 1.2;
+
+  @media (min-width: $screen-sm-min) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
   @media (min-width: $screen-sm-min) {
     font-size: 22px;
@@ -78,6 +84,16 @@ h4, h5, h6 {
     outline: 0
   }
 
+  &.btn-xs {
+    font-size: 16px;
+    padding-left: 60px;
+    padding-right: 60px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 22px;      
+    }
+  }  
+
   &.btn-sm {
     font-size: 20px;
 
@@ -92,6 +108,15 @@ h4, h5, h6 {
 
     &:hover {
       background-color: darken($green, 5%);
+    }
+  }
+
+  &.btn-red {
+    background-color: $red;
+    color: $white;
+
+    &:hover {
+      background-color: darken($red, 5%);
     }
   }
 

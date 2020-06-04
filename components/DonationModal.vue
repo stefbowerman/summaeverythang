@@ -55,122 +55,23 @@ export default {
 </script>
 
 <style lang="scss">
-body.modal-open {
-  overflow: hidden;
-}
+.donation-options {
+  max-width: 550px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
 
-.modal {
-  position: fixed;
-  z-index: $zindex-modal;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: $pale-pink;
-  background-image: $red-green-gradient;
-  color: $white;
+  li {
+    display: block;
+    margin-bottom: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 400ms cubic-bezier(0.4, 0.32, 0.15, 0.85) 100ms;
-
-  &.is-open {
-    opacity: 1;
-    pointer-events: auto;
-    transition-duration: 250ms;
-    transition-delay: 0s;
+    & + li {
+      margin-top: 19px;
+    }
   }
 
-  .dialog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
+  .btn {
     width: 100%;
-    padding: 40px $site-gutter 60px;
-    max-height: 100%;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: transform 500ms cubic-bezier(0.21, 0.16, 0.07, 0.92),
-                opacity 300ms ease-out;
   }
-
-  &.is-open .dialog {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 200ms;
-  }
-
-  .donation-options {
-    max-width: 550px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-
-    li {
-      display: block;
-      margin-bottom: 0;
-
-      & + li {
-        margin-top: 19px;
-      }
-    }
-
-    .btn {
-      width: 100%;
-    }
-  }
-
-  .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 18px;
-    display: inline-block;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 300ms ease-out;
-  }
-
-  &.is-open .close {
-    opacity: 1;
-    transition-delay: 200ms;
-  }
-}
-
-.modal-title {
-  // font-size: 34px;
-  margin-bottom: 3rem;
-
-  h6 {
-    margin-bottom: 0.5em;
-    font-size: 17px;
-    letter-spacing: 0.1em;
-  }
-
-  @media (min-width: $screen-md-min) {
-    h6 {
-      margin-bottom: 1.2em;
-      font-size: 20px;
-    }
-  }
-
-  // h2 {
-  //   font-size: 85px;
-  //   margin-bottom: -0.02em;
-  // }
-
-  // h4 {
-  //   margin: 0;
-  //   font-size: 29px;
-  // }
 }
 </style>

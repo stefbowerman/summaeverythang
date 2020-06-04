@@ -20,6 +20,11 @@ import DonateButton from '~/components/DonateButton.vue'
 export default {
   components: {
     DonateButton
+  },
+  methods: {
+    openAboutModal() {
+      this.$store.commit("OPEN_ABOUT_MODAL")
+    }
   }
 }
 </script>
@@ -50,7 +55,7 @@ export default {
     filter: saturate(0) brightness(1.6);
   }
 
-  @media (min-width: $screen-lg-min) {
+  @media (min-width: $screen-md-min) {
     height: 100vh;
     position: sticky;
     top: 0;    
@@ -60,6 +65,7 @@ export default {
 .intro-text {
   display: flex;
   align-items: center;
+  width: 100%;
   flex: 1.3;
   background-color: $green;
   background-image: $red-green-gradient;

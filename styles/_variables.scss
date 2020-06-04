@@ -1,7 +1,7 @@
 $white: #FFF;
-$green: #349E40;
-$dark-green: #186c23;
-$pale-pink: #f29f95; // #df8075;
+$green: #65a16a;
+$dark-green: #4d7e52;
+$red: #d06564; // #df8075;
 
 $venmo: #4997cf;
 $paypal: #ffc538;
@@ -22,5 +22,6 @@ $site-gutter: 30px;
 $font-family-nimbus: 'Nimbus Sans Ext', sans-serif;
 $font-family-fredoka: 'Fredoka One', sans-serif;
 
-$red-green-gradient: linear-gradient(0deg, #65a16a, #827b7b, #d06564); // linear-gradient(0deg, #65a16a, #d06564);
+$red-green-gradient: linear-gradient(0deg, #65a16a, #827b7b, $red); // linear-gradient(0deg, #65a16a, #d06564);
 $red-green-short-gradient: linear-gradient(0deg, #7b9669, #8c8982, #bc7165);
+$red-green-dark-gradient: linear-gradient(0deg, #111b11, #1f1f1f, #231312);

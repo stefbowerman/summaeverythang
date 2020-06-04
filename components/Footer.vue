@@ -28,7 +28,8 @@ export default {
     return {
       videoOptions: {
         background: true,
-        loop: true
+        loop: true,
+        autopause: false
       }
     }
   },
@@ -96,7 +97,7 @@ footer {
       left: 0;
       height: 100%;
       width: 100%;
-      background-color: #2d4821;
+      background-color: mix($green, #2d4821);
       // mix-blend-mode: color;
       mix-blend-mode: hard-light;
     }

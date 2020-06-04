@@ -2,16 +2,14 @@
   <div :class="newsClasses" ref="news">
     <div class="news-background">
       <div class="screen"></div>
-      <no-ssr>
-        <vimeo-player ref="player" :video-id="424652543" :options="videoOptions" />
-      </no-ssr>            
+      <img src="~/assets/bg-box.jpg" />          
     </div>
 
     <div class="news-block">
       <div class="news-block__topper">
-        <div class="news-block__meta">On May 30, 2020</div>
         <div class="news-block__title">
           <div class="pill pill--lg">
+            <div class="meta">On May 30, 2020</div>
             <h2>Summaeverythang Community Center donated 300+ free organic produce boxes to folks in Watts.</h2>
           </div>
         </div>
@@ -22,6 +20,7 @@
         <div class="news-block__body">
           <div class="news-block__body-text">
             <h3>The contents of these boxes included:</h3>
+            <p></p>
             <p>312 bunches of kale</p>
             <p>312 heads of romaine lettuce</p>
             <p>300 bell peppers</p>
@@ -64,9 +63,9 @@
 
     <div class="news-block">
       <div class="news-block__topper">
-        <div class="news-block__meta">On May 16, 2020</div>
         <div class="news-block__title">
           <div class="pill pill--lg">
+            <div class="meta">On May 16, 2020</div>
             <h2>Summaeverythang Community Center donated 200 free organic produce boxes to folks in Watts.</h2>
           </div>
         </div>
@@ -77,6 +76,7 @@
         <div class="news-block__body">
           <div class="news-block__body-text">
             <h3>Contents included Organic:</h3>
+            <p></p>
             <p>Kale Bunch</p>
             <p>Lettuce Romaine Heart</p>
             <p>Bell Pepper</p>
@@ -105,7 +105,7 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 </template>
 
@@ -141,7 +141,7 @@ export default {
       const boundingRectTop = this.$refs.news.getBoundingClientRect().top;
 
       this.isSticky = boundingRectTop <= 0;
-      this.inView = boundingRectTop <= window.innerHeight; // This isn't great since it only takes the top part of the element into account but it's fone because the only thing that comes after is the footer and that slides over
+      // this.inView = boundingRectTop <= window.innerHeight; // This isn't great since it only takes the top part of the element into account but it's fone because the only thing that comes after is the footer and that slides over
     }
   }
 }
@@ -149,13 +149,13 @@ export default {
 
 <style lang="scss">
 .news {
-  background-color: $white;
+  background-color: $dark-green;
   position: relative;
 }
 
 .news-block {
   text-align: center;
-  background-color: $white;
+  // background-color: $white;
 
   .pill {
     background-image: $red-green-short-gradient;
@@ -193,6 +193,12 @@ export default {
     text-transform: none;
     letter-spacing: 0.05em;
   }
+
+  .meta {
+    font-family: 'Courier', monospace;
+    font-size: 13px;
+    margin: -2px 0 7px;
+  }
 }
 
 .news-block__content {
@@ -206,7 +212,7 @@ export default {
 .news-block__body-text {
   padding: 8rem $site-gutter;
   font-size: 25px;
-  line-height: 1.8;
+  line-height: 1.2;
   position: relative;
   z-index: 2;
   color: $white;
@@ -215,7 +221,7 @@ export default {
     margin-bottom: 0;
 
     & + p {
-      margin-top: 0.4em;
+      margin-top: 1.5em;
     }
   }
 }
@@ -227,11 +233,7 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  display: none;
-
-  .in-view & {
-    display: block;
-  }
+  background-color: $dark-green;
 
   .is-sticky & {
     position: fixed;
@@ -244,20 +246,14 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    // background-color: transparentize($white, 0.3);
-    background-color: #024f0c73;
-    mix-blend-mode: color;
+    background-color: rgba(20, 85, 28, 0.7);
+    mix-blend-mode: multiply;
   }
 
-  iframe {
-    width: 100vw;
-    height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
-    min-height: 100vh;
-    min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);      
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -276,17 +272,18 @@ export default {
     margin-bottom: 30px;
     font-size: 26px;
   }
+}
 
+@media (min-width: $screen-md-min) {
   .news-block__body-text {
     font-size: 40px;
     line-height: 1.3;
+
+    p {
+      & + p {
+        margin-top: 0.9em;
+      }
+    }    
   }
 }
-
-// @media (min-width: $screen-lg-min) {
-//   .news-block__body-text {
-//     font-size: 60px;
-//     line-height: 1;
-//   }
-// }
 </style>
