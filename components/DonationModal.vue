@@ -6,17 +6,17 @@
         <TitleLockup />
       </div>
       <ul class="donation-options">
-        <li>
-          <a href="https://venmo.com/?txn=pay&audience=friends&recipients=lauren-halsey-3&note=Summaeverythang%20Community%20center%20Donation" class="btn btn-sm btn-venmo">Donate via Venmo</a>
-        </li>
-        <li>
+        <li class="option-paypal">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="Lauren.d.halsey@gmail.com" />
             <input type="hidden" name="item_name" value="Support for Summaeverythang community center" />
             <input type="hidden" name="currency_code" value="USD" />
-            <input type="submit" class="btn btn-sm btn-paypal" value="Donate via PayPal" />
+            <input type="submit" class="btn btn-sm btn-paypal" value="Donate with PayPal" />
           </form>
+        </li>
+        <li class="option-venmo">
+          <a href="https://venmo.com/?txn=pay&audience=friends&recipients=lauren-halsey-3&note=Summaeverythang%20Community%20center%20Donation" class="btn btn-sm btn-venmo">Donate with Venmo</a>
         </li>
       </ul>
       <div style="margin-top: 30px; font-family: courier; font-size: 13px; max-width: 40em;">All donations will go to support food donation programs in Watts and South Central Los Angeles</div>
@@ -72,6 +72,14 @@ export default {
 
   .btn {
     width: 100%;
+  }
+
+  // Venmo only works on devices with the app installed
+  // Not sure the best way to check for this?
+  .option-venmo {
+    @media (min-width: $screen-md-min) {
+      display: none;
+    }
   }
 }
 </style>
