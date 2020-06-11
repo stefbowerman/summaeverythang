@@ -1,7 +1,7 @@
 <template>
   <div class="title-lockup">
     <h1>summaeverythang</h1>
-    <h4>community center</h4>
+    <h4>community center, inc.</h4>
   </div>
 </template>
 
