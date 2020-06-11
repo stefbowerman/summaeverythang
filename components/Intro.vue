@@ -6,6 +6,7 @@
         <p>is a community center based in South Central Los Angeles dedicated to the empowerment and transcendence of black and brown folks socio-politically and economically, intellectually and artistically.</p>
         <p>Summaeverythang Community Center was founded in 2019 by artist and fantasy architect, Lauren Halsey.</p>
         <DonateButton />
+        <div class="bubble">The Summaeverythang Community Center is not currently seeking volunteers as I'm keeping the team small due to concerns regarding COVID-19. However, please stay in touch!!</div>
       </div>
     </div>
     <div class="intro-image">
@@ -96,6 +97,16 @@ export default {
 
   .donate-button {
     margin-top: 4rem;
+  }
+
+  .bubble {
+    font-family: 'Courier', monospace;
+    font-size: 12px;
+    line-height: 1.3;
+    border: 1px solid $white;
+    padding: 21px 30px 19px;
+    border-radius: 20px;
+    margin-top: 5rem;
   }
 
   @media (min-width: $screen-sm-min) {

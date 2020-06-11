@@ -1,0 +1,55 @@
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 10px 0;
+  font-family: $font-family-fredoka;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.4;
+  color: $white;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 1px solid $white;
+  border-width: 0 0 1px 0;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  border-radius: 0px; //52px * 0.5;
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  &:focus {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+    outline: 0;
+  }
+
+  // Placeholder
+  &::placeholder {
+    color: $white;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 0.5;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+}
+
+textarea.form-control {
+  height: auto;
+}

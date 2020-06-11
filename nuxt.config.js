@@ -45,7 +45,8 @@ export default {
    */
   styleResources: {
     scss: [
-      '~/styles/_variables.scss'
+      '~/styles/_variables.scss',
+      '~/styles/_mixins.scss'
     ]
   },
   plugins: [

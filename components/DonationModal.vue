@@ -1,10 +1,13 @@
 <template>
   <div :class="classes">
     <div class="dialog" role="dialog">
-      <div class="modal-title">
+      <div class="modal-title" style="margin-top: 2rem;">
         <h6>We need your support</h6>
         <TitleLockup />
       </div>
+      <div style="font-size: 15px; margin-bottom: 3rem; font-family: courier, monospace;">
+        All donations will go to support food donation programs in Watts and South Central Los Angeles.
+      </div>      
       <ul class="donation-options">
         <li class="option-paypal">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -19,7 +22,9 @@
           <a href="https://venmo.com/?txn=pay&audience=friends&recipients=lauren-halsey-3&note=Summaeverythang%20Community%20center%20Donation" class="btn btn-sm btn-venmo">Donate with Venmo</a>
         </li>
       </ul>
-      <div style="margin-top: 30px; font-family: courier; font-size: 13px; max-width: 40em;">All donations will go to support food donation programs in Watts and South Central Los Angeles</div>
+      <div style="font-size: 11px; margin-top: 5rem; max-width: 65em; font-family: courier, monospace;">
+        As of June 10, 2020 Summaeverythang Community Center, Inc. is a certified Delaware corporation applying for recognition as a nonprofit entity under IRS Code 501(c)(3). Donations received after June 10, 2020 maybe eligible for a tax deduction.
+      </div>
     </div>
     <span class="close" @click="closeModal()">CLOSE</span>    
   </div>

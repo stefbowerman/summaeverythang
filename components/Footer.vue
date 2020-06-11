@@ -5,8 +5,8 @@
         <DonateButton />
       </div>
     </div>
-    <div class="contact">
-      contact - <a href="mailto:laurenmane@gmail.com" target="_blank">laurenmane@gmail.com</a>
+    <div class="contact" @click="openContactModal()">
+      contact us
     </div>    
     <div class="video-bg">
       <div class="screen"></div>
@@ -33,15 +33,9 @@ export default {
       }
     }
   },
-  mounted() {
-    // check scroll, pause the video when not playing
-  },
   methods: {
-    onIntersectionEnter() {
-      this.$refs.player.play();
-    },
-    onIntersectionLeave() {
-      this.$refs.player.pause();
+    openContactModal() {
+      this.$store.commit("OPEN_CONTACT_MODAL")
     }
   }
 }
@@ -78,6 +72,8 @@ footer {
     font-size: 13px;
     font-family: 'Courier';
     color: $white;
+    cursor: pointer;
+    text-transform: uppercase;
   }  
 
   .video-bg {

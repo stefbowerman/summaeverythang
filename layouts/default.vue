@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span>{{ playText }}</span>
     <nuxt />
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
-    <audio autoplay="autoplay" ref="audio" @canplay="onCanPlay()" @play="onPlay()">
+    <ContactModal :show="$store.state.contactModalOpened" />
+    <audio ref="audio" @canplay="onCanPlay()" @play="onPlay()">
       <source src="~/assets/were-a-winner-the-impressions.mp3" type="audio/mpeg">
     </audio>
   </div>
@@ -13,25 +13,23 @@
 <script>
 import DonationModal from '~/components/DonationModal.vue'
 import AboutModal from '~/components/AboutModal.vue'
+import ContactModal from '~/components/ContactModal.vue'
 
 export default {
   components: {
     DonationModal,
-    AboutModal
+    AboutModal,
+    ContactModal
   },
   head() {
     return {
       bodyAttrs: {
         class: [
           `${this.$store.state.donationModalOpened ? "modal-open" : ""}`,
-          `${this.$store.state.aboutModalOpened ? "modal-open" : ""}`
+          `${this.$store.state.aboutModalOpened ? "modal-open" : ""}`,
+          `${this.$store.state.contactModalOpened ? "modal-open" : ""}`
         ]
       }
-    }
-  },
-  data() {
-    return {
-      playText: ''
     }
   },
   mounted() {
@@ -53,6 +51,11 @@ export default {
       this.$refs.audio.play();
     },    
     onCanPlay() {
+      if (window.location && window.location.hostname == 'localhost') {
+        this.$refs.audio.pause();
+        return;
+      }
+
       this.$refs.audio.play();
     },
     onPlay() {

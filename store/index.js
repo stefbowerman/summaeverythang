@@ -2,7 +2,7 @@
 export const state = () => ({
   donationModalOpened: false,
   aboutModalOpened: false,
-  videoPlaying: false
+  contactModalOpened: false
 })
 
 // Define mutations
@@ -19,10 +19,10 @@ export const mutations = {
   CLOSE_ABOUT_MODAL(state) {
     state.aboutModalOpened = false
   },
-  VIDEO_PLAYING(state) {
-    state.videoPlaying = true
+  OPEN_CONTACT_MODAL(state) {
+    state.contactModalOpened = true
   },
-  VIDEO_STOPPED(state) {
-    state.videoPlaying = false
+  CLOSE_CONTACT_MODAL(state) {
+    state.contactModalOpened = false
   }
 }

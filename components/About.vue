@@ -6,8 +6,6 @@
           <vimeo-player
             :video-id="425754677"
             :options="options"
-            @play="onPlay"
-            @pause="onPause"
           />
         </no-ssr>
       </div>
@@ -33,12 +31,6 @@ export default {
     }
   },
   methods: {
-    onPlay() {
-      this.$store.commit("VIDEO_PLAYING")
-    },
-    onPause() {
-      this.$store.commit("VIDEO_STOPPED")
-    },
     openAboutModal() {
       this.$store.commit("OPEN_ABOUT_MODAL")
     }
