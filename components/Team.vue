@@ -87,8 +87,12 @@ export default {
 
 <style lang="scss">
 .team {
-  padding: 100px 0;
+  padding: 50px 0 100px;
   color: $white;
+
+  @media (min-width: $screen-md-min) {
+    padding: 100px 0;
+  }
 }
 
 .team-grid {

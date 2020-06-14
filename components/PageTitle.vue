@@ -28,7 +28,7 @@ export default {
   text-align: center;
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   @media (min-width: $screen-sm-min) {
