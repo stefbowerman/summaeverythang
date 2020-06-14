@@ -1,0 +1,134 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  color: $green;
+  background-color: $white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 28px;
+  font-family: $font-family-fredoka;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 100px;
+  transition: {
+    duration: 200ms;
+    property: background-color, color, transform;
+    timing-function: cubic-bezier(0.35, 0.25, 0.39, 0.96);
+  }
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  &:hover {
+    color: darken($green, 5%);
+    background-color: $white;
+    transform: scale(1.01);
+    transition-duration: 120ms;
+    transition-timing-function: cubic-bezier(0.17, 0.32, 0.09, 0.88);
+  }
+
+  &:focus {
+    outline: 0
+  }
+
+  &.btn-xxs {
+    font-size: 14px;
+    padding: 8px 18px;
+
+    @media (min-width: $screen-sm-min) {
+      padding: 8px 34px;
+      font-size: 18px;      
+    }    
+  }
+
+  &.btn-xs {
+    font-size: 16px;
+    padding-left: 60px;
+    padding-right: 60px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 22px;      
+    }
+  }  
+
+  &.btn-sm {
+    font-size: 20px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 27px;      
+    }
+  }
+
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  &.btn-green {
+    background-color: $green;
+    color: $white;
+
+    &:hover {
+      background-color: darken($green, 5%);
+    }
+  }
+
+  &.btn-red {
+    background-color: $red;
+    color: $white;
+
+    &:hover {
+      background-color: darken($red, 5%);
+    }
+  }
+
+  &.btn-paypal {
+    background-color: $paypal;
+    color: $white;
+
+    &:hover {
+      background-color: darken($paypal, 5%);
+    }
+  }
+  &.btn-venmo {
+    background-color: $venmo;
+    color: $white;
+
+    &:hover {
+      background-color: darken($venmo, 5%);
+    }
+  }
+  &.btn-stripe {
+    background-color: $stripe;
+    color: $white;
+
+    &:hover {
+      background-color: darken($stripe, 5%);
+    }
+  }
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+
+  .btn + .btn {
+    margin-top: 1.5rem
+  }
+
+  @media (min-width: $screen-md-min) {
+    flex-direction: row;
+
+    .btn + .btn {
+      margin-top: 0;
+    }
+
+    .btn {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}

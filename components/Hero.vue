@@ -34,11 +34,7 @@ export default {
   color: $white;
 
   .container {
-    transform: translateY(3%);
-
-    @media (min-width: $screen-lg-min) {
-      transform: translateY(0%);
-    }
+    transform: translateY(5%);
   }
 
   .title-lockup {

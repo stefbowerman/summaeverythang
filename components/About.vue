@@ -1,22 +1,32 @@
 <template>
   <div class="about">
-    <div class="about-player">
-      <div class="about-player__embed">
-        <no-ssr>
-          <vimeo-player
-            :video-id="425754677"
-            :options="options"
-          />
-        </no-ssr>
+    <div class="player-container">
+      <div class="player">
+        <div class="player__embed">
+          <no-ssr>
+            <vimeo-player
+              :video-id="425754677"
+              :options="options"
+            />
+          </no-ssr>
+        </div>
       </div>
     </div>
-    <span class="btn btn-red btn-sm" @click="openAboutModal()">Learn More</span>
+    <div class="btn-group">
+      <span class="btn btn-red btn-sm" @click="openAboutModal()">Learn More</span>
+      <nuxt-link to="/team" class="btn btn-sm">Meet the Team</nuxt-link>
+    </div>
+    <SubscribeBlock />
   </div>
 </template>
 
 <script>
+import SubscribeBlock from '~/components/SubscribeBlock'
 
 export default {
+  components: {
+    SubscribeBlock
+  },
   data() {
     return {
       options: {
@@ -48,37 +58,18 @@ export default {
   background-image: $red-green-gradient;
   padding: 120px 0 70px;
 
-  @media (min-width: $screen-md-min) {
-    padding-left: $site-gutter;
-    padding-right: $site-gutter;
-  }
-
   @media (min-width: $screen-xl-min) {
-    padding: 100px;    
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
-  .btn {
+  .btn-group {
     margin-top: 3.5rem;
   }
-}
 
-.about-player {
-  width: 100%;
-  max-width: 135vh;
-}
-
-.about-player__embed {
-  width: 100%;
-  height: 0;
-  padding-bottom: percentage(9/16);
-  position: relative;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .subscribe-block {
+    margin-top: 13rem;
+    margin-bottom: 5rem;
   }
 }
 </style>

@@ -116,7 +116,9 @@ body.modal-open {
   width: 100%;
   max-width: 50em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: left;
   font-family: courier, monospace;
 

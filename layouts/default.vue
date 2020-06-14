@@ -1,6 +1,8 @@
 <template>
   <div>
+    <Header />
     <nuxt />
+    <Footer />
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
     <ContactModal :show="$store.state.contactModalOpened" />
@@ -11,12 +13,16 @@
 </template>
 
 <script>
+import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 import DonationModal from '~/components/DonationModal.vue'
 import AboutModal from '~/components/AboutModal.vue'
 import ContactModal from '~/components/ContactModal.vue'
 
 export default {
   components: {
+    Header,
+    Footer,
     DonationModal,
     AboutModal,
     ContactModal
@@ -26,8 +32,8 @@ export default {
       bodyAttrs: {
         class: [
           `${this.$store.state.donationModalOpened ? "modal-open" : ""}`,
-          `${this.$store.state.aboutModalOpened ? "modal-open" : ""}`,
-          `${this.$store.state.contactModalOpened ? "modal-open" : ""}`
+          `${this.$store.state.aboutModalOpened    ? "modal-open" : ""}`,
+          `${this.$store.state.contactModalOpened  ? "modal-open" : ""}`
         ]
       }
     }
@@ -48,6 +54,11 @@ export default {
   },
   methods: {
     onTouchStart() {
+      if (window.location && window.location.hostname == 'localhost') {
+        this.$refs.audio.pause();
+        return;
+      }
+
       this.$refs.audio.play();
     },    
     onCanPlay() {
