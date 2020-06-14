@@ -55,7 +55,7 @@
         <TeamMember
           name="Baby D / Dael"
           image="/team-baby-d.jpg"
-          bio="<p>I enjoy packing food boxes and helping out black community.</p>"
+          bio="<p>I enjoy packing food boxes and helping out my black community.</p>"
         />
         <TeamMember
           name="Alex Aispuro"
