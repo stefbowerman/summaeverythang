@@ -28,7 +28,13 @@ export default {
   text-align: center;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    h1 {
+      font-size: 2.5rem; 
+    }
   }
 
   @media (min-width: $screen-md-min) {

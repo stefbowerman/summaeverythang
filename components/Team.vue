@@ -1,10 +1,10 @@
 <template>
   <div class="team bg-gradient">
+    <PageTitle
+      title="Summaeverythang Team"
+      subtitle="Summaeverythang is supported by a dedicated team of community volunteers"
+    />    
     <div class="container">
-      <PageTitle
-        title="Summaeverythang Team"
-        subtitle="Summaeverythang is supported by a dedicated team of community volunteers"
-      />
       <div class="team-grid">
         <TeamMember
           name="Monique McWilliams"

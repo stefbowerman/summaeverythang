@@ -59,7 +59,7 @@ h4, h5, h6 {
 
 .player-container {
   width: 100%;
-  
+
   @media (min-width: $screen-md-min) {
     padding-left: $site-gutter;
     padding-right: $site-gutter;
@@ -68,6 +68,10 @@ h4, h5, h6 {
   @media (min-width: $screen-xl-min) {
     padding-left: 100px;
     padding-right: 100px;
+  }
+
+  & + & {
+    margin-top: 8rem;
   }
 }
 

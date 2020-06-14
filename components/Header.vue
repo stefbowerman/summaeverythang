@@ -62,6 +62,7 @@ header {
     text-align: center;
     font-family: $font-family-courier;
     font-size: 0.875rem;
+    font-weight: bold;
 
     @media (min-width: $screen-sm-min) {
       font-size: 1rem;
@@ -72,6 +73,7 @@ header {
     @media (min-width: $screen-md-min) {
       margin-left: 0;
       text-align: center;
+      font-weight: normal;
     }    
 
     a {

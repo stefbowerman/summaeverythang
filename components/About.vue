@@ -68,8 +68,12 @@ export default {
   }
 
   .subscribe-block {
-    margin-top: 13rem;
+    margin-top: 9rem;
     margin-bottom: 5rem;
+
+    @media (min-width: $screen-md-min) {
+      margin-top: 13rem;
+    }
   }
 }
 </style>

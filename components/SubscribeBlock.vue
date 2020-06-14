@@ -91,7 +91,7 @@ export default {
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   p {
@@ -99,6 +99,17 @@ export default {
     max-width: 48em;
     margin-left: auto;
     margin-right: auto;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: $screen-md-min) {
+  h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 }
 
