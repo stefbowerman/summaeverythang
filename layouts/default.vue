@@ -41,19 +41,18 @@ export default {
   mounted() {
     this.$refs.audio.volume = 0.5;
 
-    document.addEventListener('touchstart', this.onTouchStart);
-
     // Credits..
     if(console) {
-      console.log('%c✨🍏🍎🍐🍊🍇🥝🥦🥑🥕🍅🍓✨', 'font-size: 30px');
-      console.log('%c SUMMAEVERYTHANG: design + development 👉 stefanbowerman.com', 'font-family: Courier New; font-size: 20px; color: white; padding: 6px 20px; background-color: #65a16a; font-weight: bold; border-radius: 5px;');
+      console.log('%c✨🍏🍎🍐🍊🍇🥝🥦🥑🥕🍅🍓✨', 'font-size: 30px')
+      console.log('%c SUMMAEVERYTHANG: design + development 👉 stefanbowerman.com', 'font-family: Courier New; font-size: 20px; color: white; padding: 6px 20px; background-color: #65a16a; font-weight: bold; border-radius: 5px;')
     }
   },
   beforeDestroy() {
-    document.removeEventListener('touchstart', this.onTouchStart);
+    document.removeEventListener('touchstart', this.onInteraction)
+    document.removeEventListener('mousemove', this.onInteraction)
   },
   methods: {
-    onTouchStart() {
+    onInteraction() {
       if (window.location && window.location.hostname == 'localhost') {
         this.$refs.audio.pause();
         return;
@@ -62,6 +61,9 @@ export default {
       this.$refs.audio.play();
     },    
     onCanPlay() {
+      document.addEventListener('touchstart', this.onInteraction)
+      document.addEventListener('mousemove', this.onInteraction)
+
       if (window.location && window.location.hostname == 'localhost') {
         this.$refs.audio.pause();
         return;
@@ -70,7 +72,8 @@ export default {
       this.$refs.audio.play();
     },
     onPlay() {
-      document.removeEventListener('touchstart', this.onTouchStart)
+      document.removeEventListener('touchstart', this.onInteraction)
+      document.removeEventListener('mousemove', this.onInteraction)
     }
   }
 }
