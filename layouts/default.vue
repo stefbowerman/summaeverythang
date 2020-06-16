@@ -6,7 +6,7 @@
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
     <ContactModal :show="$store.state.contactModalOpened" />
-    <audio ref="audio" @canplay="onCanPlay()" @play="onPlay()">
+    <audio ref="audio" autoplay="autoplay" @canplay="onCanPlay()" @play="onPlay()">
       <source src="~/assets/were-a-winner-the-impressions.mp3" type="audio/mpeg">
     </audio>
   </div>
