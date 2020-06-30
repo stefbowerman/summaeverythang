@@ -101,12 +101,15 @@ export default {
 
   .bubble {
     font-family: 'Courier', monospace;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.3;
     border: 1px solid $white;
     padding: 21px 30px 19px;
     border-radius: 20px;
     margin-top: 5rem;
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (min-width: $screen-sm-min) {

@@ -61,7 +61,12 @@
           name="Alex Aispuro"
           image="/team-alex.jpg"
           bio="<p>My name is Alex and im helping out because i know its for a good cause. And its going to the people who need it.</p>"
-        />        
+        />
+        <TeamMember
+          name="Chris Breezy / Chris Brown"
+          image="/team-chris.jpg"
+          bio="<p>I'm Chris Brown, born and raised in L.A. My goal is to help make change in my community and uplift people. As a black man I feel it's important we take care of each other and have compassion for each other.</p>"
+        /> 
         <TeamMember
           name="Loda / Lauren Halsey"
           image="/team-lauren.jpg"

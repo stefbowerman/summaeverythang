@@ -6,7 +6,7 @@
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
     <ContactModal :show="$store.state.contactModalOpened" />
-    <audio ref="audio" autoplay="autoplay" @canplay="onCanPlay()" @play="onPlay()">
+    <audio ref="audio" autoplay @canplay="onCanPlay()" @play="onPlay()">
       <source src="~/assets/were-a-winner-the-impressions.mp3" type="audio/mpeg">
     </audio>
   </div>
@@ -53,10 +53,10 @@ export default {
   },
   methods: {
     onInteraction() {
-      if (window.location && window.location.hostname == 'localhost') {
-        this.$refs.audio.pause();
-        return;
-      }
+      // if (window.location && window.location.hostname == 'localhost') {
+      //   this.$refs.audio.pause();
+      //   return;
+      // }
 
       this.$refs.audio.play();
     },    
@@ -64,10 +64,10 @@ export default {
       document.addEventListener('touchstart', this.onInteraction)
       document.addEventListener('mousemove', this.onInteraction)
 
-      if (window.location && window.location.hostname == 'localhost') {
-        this.$refs.audio.pause();
-        return;
-      }
+      // if (window.location && window.location.hostname == 'localhost') {
+      //   this.$refs.audio.pause();
+      //   return;
+      // }
 
       this.$refs.audio.play();
     },
