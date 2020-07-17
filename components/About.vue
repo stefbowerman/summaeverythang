@@ -17,6 +17,10 @@
       <nuxt-link to="/team" class="btn btn-sm">Meet the Team</nuxt-link>
     </div>
     <SubscribeBlock />
+
+    <div class="contact" @click="openContactModal()">
+      contact us
+    </div>    
   </div>
 </template>
 
@@ -43,6 +47,9 @@ export default {
   methods: {
     openAboutModal() {
       this.$store.commit("OPEN_ABOUT_MODAL")
+    },
+    openContactModal() {
+      this.$store.commit("OPEN_CONTACT_MODAL")
     }
   }
 }
@@ -50,6 +57,7 @@ export default {
 
 <style lang="scss">
 .about {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,5 +83,19 @@ export default {
       margin-top: 13rem;
     }
   }
+
+  .contact {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Courier';
+    color: $white;
+    cursor: pointer;
+    text-transform: uppercase;
+  }  
 }
 </style>

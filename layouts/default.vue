@@ -2,10 +2,12 @@
   <div>
     <Header />
     <nuxt />
-    <Footer />
+    <Footer v-show="$route.name !== 'index'" />
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
+    <SignupModal :show="$store.state.signupModalOpened" />
     <ContactModal :show="$store.state.contactModalOpened" />
+
     <audio ref="audio" autoplay @canplay="onCanPlay()" @play="onPlay()">
       <source src="~/assets/were-a-winner-the-impressions.mp3" type="audio/mpeg">
     </audio>
@@ -18,6 +20,7 @@ import Footer from '~/components/Footer.vue'
 import DonationModal from '~/components/DonationModal.vue'
 import AboutModal from '~/components/AboutModal.vue'
 import ContactModal from '~/components/ContactModal.vue'
+import SignupModal from '~/components/SignupModal.vue'
 
 export default {
   components: {
@@ -25,7 +28,8 @@ export default {
     Footer,
     DonationModal,
     AboutModal,
-    ContactModal
+    ContactModal,
+    SignupModal
   },
   head() {
     return {
@@ -33,13 +37,21 @@ export default {
         class: [
           `${this.$store.state.donationModalOpened ? "modal-open" : ""}`,
           `${this.$store.state.aboutModalOpened    ? "modal-open" : ""}`,
-          `${this.$store.state.contactModalOpened  ? "modal-open" : ""}`
+          `${this.$store.state.contactModalOpened  ? "modal-open" : ""}`,
+          `${this.$store.state.signupModalOpened  ? "modal-open" : ""}`
         ]
       }
     }
   },
+  data() {
+    return {
+      audioStartTimeout: null
+    }
+  },
   mounted() {
     this.$refs.audio.volume = 0.5;
+
+    this.audioStartTimeout = setTimeout(() => this.startAudio(), 1500);
 
     // Credits..
     if(console) {
@@ -72,8 +84,19 @@ export default {
       this.$refs.audio.play();
     },
     onPlay() {
+      clearTimeout(this.audioStartTimeout)
+
       document.removeEventListener('touchstart', this.onInteraction)
       document.removeEventListener('mousemove', this.onInteraction)
+
+      this.$refs.audio.volume = 0.5;
+    },
+    startAudio() {
+      const p = this.$refs.audio.play();
+
+      if (p) {
+        p.catch(e => console.log(e));
+      } 
     }
   }
 }

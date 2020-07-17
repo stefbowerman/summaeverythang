@@ -62,6 +62,14 @@
     }
   }
 
+  &.btn-lg {
+    font-size: 32px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 40px;      
+    }
+  }
+
   &.btn-block {
     display: block;
     width: 100%;

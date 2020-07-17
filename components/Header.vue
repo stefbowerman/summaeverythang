@@ -7,7 +7,7 @@
         <nuxt-link to="/team">Team</nuxt-link>
         <a href="#" @click.prevent="openAboutModal">About</a>
         <nuxt-link to="/produce-box">Produce Box</nuxt-link>
-        <a href="#" @click.prevent="openContactModal">Contact</a>
+        <a href="#" @click.prevent="openSignupModal">Sign Up</a>
       </div>
       <span class="btn btn-xxs hide-on-xs" @click="openDonationModal">Donate<span class="hide-on-xs"> Now</span></span>
     </div>
@@ -23,8 +23,8 @@ export default {
     openAboutModal() {
       this.$store.commit("OPEN_ABOUT_MODAL")
     },
-    openContactModal() {
-      this.$store.commit("OPEN_CONTACT_MODAL")
+    openSignupModal() {
+      this.$store.commit("OPEN_SIGNUP_MODAL");
     }
   }
 }

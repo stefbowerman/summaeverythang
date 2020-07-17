@@ -2,12 +2,12 @@
   <footer>
     <div class="footer-contents">
       <div class="container">
-        <DonateButton />
+        <DonateButton size="lg" />
       </div>
     </div>
-    <div class="contact" @click="openContactModal()">
+    <div v-if="$route.name != 'index'" class="contact" @click="openContactModal()">
       contact us
-    </div>    
+    </div>
     <div class="video-bg">
       <div class="screen"></div>
       <no-ssr>

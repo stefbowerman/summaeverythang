@@ -1,19 +1,37 @@
 <template>
-  <div class="contact-form">
+  <div class="signup-form">
+    <p>I'd like to&hellip;</p>
+    <p>
+      <label class="radio-label" for="signup-volunteer">
+        <input type="radio" id="signup-volunteer" value="volunteer" v-model="form.signupType">
+        <span class="radio-display">Volunteer with Summaeverythang</span>
+      </label>      
+      <br />
+      <label class="radio-label" for="signup-receive">
+        <input type="radio" id="signup-receive" value="produce-box" v-model="form.signupType">
+        <span class="radio-display">Receive a Produce Box</span>
+      </label>
+    </p>
+
     <form @submit.prevent="onSubmit" ref="form" :action="formAction" method="POST">
+      <input type="hidden" name="_subject" :value="formSubject">
+      <input type="hidden" name="title" :value="formTitle">
       <p>
-        <label for="contact-name">Your Name</label>
-        <input class="form-control" name="name" type="text" id="contact-name" v-model="form.name" placeholder="Your Name">
+        <label class="form-control-label" for="signup-name">Your Name</label>
+        <input class="form-control" name="name" type="text" id="signup-name" v-model="form.name" placeholder="Your Name">
       </p>
       <p>
-        <label for="contact-email">Email</label>
-        <input class="form-control" name="email" type="email" id="contact-email" v-model="form.email" placeholder="Your Email">
+        <label class="form-control-label" for="signup-email">Email</label>
+        <input class="form-control" name="email" type="email" id="signup-email" v-model="form.email" placeholder="Your Email">
       </p>
-      <p>
-        <label id="contact-message" for="contact-message">Message</label>
-        <textarea class="form-control" name="message" id="contact-message" rows="3" v-model="form.message" placeholder="Message"></textarea>
-      </p>    
-      <input type="hidden" name="_subject" id="email-subject" v-model="form._subject">
+      <p v-if="form.signupType === 'volunteer'">
+        <label class="form-control-label" for="signup-message">Message</label>
+        <textarea class="form-control" name="message" id="signup-message" rows="3" v-model="form.message" placeholder="Message"></textarea>
+      </p>   
+      <p v-if="form.signupType === 'produce-box'">
+        <label class="form-control-label" for="signup-zip">Zip Code</label>
+        <input class="form-control" name="zip code" type="text" id="signup-zip" v-model="form.zip" placeholder="Your Zip Code">
+      </p>  
       <input type="text" name="_gotcha" v-model="form._gotcha" style="display:none" />
       <button type="submit" class="btn btn-sm btn-block" style="margin-top: 3rem;" :disabled="submitting">{{ submitText }}</button>
     </form>
@@ -37,11 +55,18 @@
 <script>
 import axios from 'axios';
 
+// Produce box signups - https://formspree.io/xwkrwyyl
+// Volunteer signups - https://formspree.io/xvowvllz
+
+const signupTypes = {
+  VOLUNTEER: 'volunteer',
+  PRODUCE_BOX: 'produce-box'
+};
+
 export default {
   data() {
     return {
       form: this.getInitialFormState(),
-      formAction: 'https://formspree.io/maypjnjq',
       submitting: false,
       success: false,
       error: false,
@@ -51,6 +76,15 @@ export default {
   computed: {
     submitText() {
       return this.submitting ? 'Sending...' : 'Send'
+    },
+    formAction() {
+      return `https://formspree.io/${this.form.signupType == signupTypes.VOLUNTEER ? 'xvowvllz' : 'xwkrwyyl' }`;
+    },
+    formSubject() {
+      return `[Summaeverythang.org] ${this.formTitle}`
+    },
+    formTitle() {
+      return this.form.signupType == signupTypes.VOLUNTEER ? 'Volunteer Sign Up' : 'Produce Box Sign up';
     }
   },
   methods: {
@@ -58,6 +92,7 @@ export default {
       return {
         name: '',
         email: '',
+        signupType: signupTypes.VOLUNTEER,
         message: '',
         _subject: '[Summaeverythang.org] Contact Form Message',
         _gotcha: ''
@@ -85,7 +120,7 @@ export default {
     },
     onSubmit() {
       // Make sure they're submitting an actual email
-      if(this.form.email.length === 0 || this.form.message.length == 0) {
+      if(this.form.email.length === 0) {
         return this.onSubmitError()
         return
       }
