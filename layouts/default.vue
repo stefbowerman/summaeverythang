@@ -2,7 +2,7 @@
   <div>
     <Header />
     <nuxt />
-    <Footer v-show="$route.name !== 'index'" />
+    <Footer />
     <DonationModal :show="$store.state.donationModalOpened"/>
     <AboutModal :show="$store.state.aboutModalOpened" />
     <SignupModal :show="$store.state.signupModalOpened" />

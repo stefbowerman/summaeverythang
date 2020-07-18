@@ -5,7 +5,7 @@
         <DonateButton size="lg" />
       </div>
     </div>
-    <div v-if="$route.name != 'index'" class="contact" @click="openContactModal()">
+    <div class="contact" @click="openContactModal()">
       contact us
     </div>
     <div class="video-bg">
