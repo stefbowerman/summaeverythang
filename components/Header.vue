@@ -11,6 +11,7 @@
       </div>
       <span class="btn btn-xxs hide-on-xs" @click="openDonationModal">Donate<span class="hide-on-xs"> Now</span></span>
     </div>
+    <div class="bg" />
   </header>
 </template>
 
@@ -30,15 +31,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   right: 0;
-  background-color: $dark-green;
-  background-image: linear-gradient(90deg, $dark-green, mix($dark-green, $green) 90%);
   color: $white;
   padding: 13px 0;
 
@@ -92,6 +91,19 @@ header {
         margin: 0 15px;
       }      
     }
+  }
+}
+
+.bg {
+  @include fill;
+  z-index: -1;
+  background-color: $dark-green;
+  background-image: linear-gradient(90deg, $dark-green, mix($dark-green, $green) 90%);
+
+  transition: opacity 300ms ease-out;
+
+  .route-index:not(.is-scrolled) & {
+    opacity: 0;
   }
 }
 </style>

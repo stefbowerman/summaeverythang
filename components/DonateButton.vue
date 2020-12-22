@@ -2,7 +2,8 @@
   <div class="donate-button">
     <span :class="buttonClass" @click="openDonationModal()">Donate Now</span>
     <div class="donate-button__text">
-      All donations will go to support food donation programs in Watts and South Central Los Angeles
+      <p>All donations will go to support food donation programs in Watts and South Central Los Angeles.</p>
+      <p>Summaeverythang Community Center is a 501c3 nonprofit. All donations are tax-deductible.</p>
     </div>
   </div>
 </template>
@@ -32,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .donate-button {
 
 }
@@ -41,7 +42,15 @@ export default {
   font-family: 'Courier';
   font-size: 12px;
   line-height: 1.3;
-  max-width: 37em;
+  max-width: 45em;
   margin: 2rem auto 0;
+
+  p {
+    margin: 0;
+
+    & + & {
+      margin-top: 0.5em;
+    }
+  }
 }
 </style>

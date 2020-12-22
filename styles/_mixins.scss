@@ -13,3 +13,11 @@
   background-color: $green;
   background-image: $red-green-gradient;  
 }
+
+@mixin fill($position: absolute) {
+  position: $position;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}

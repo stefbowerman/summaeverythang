@@ -1,5 +1,9 @@
 <template>
-  <div class="hero">
+  <div :class="[
+      'hero',
+      { 'is-ready': imageLoaded }
+    ]
+  ">
     <div class="container">
       <div class="titles">
         <TitleLockup />
@@ -7,7 +11,11 @@
       <div class="pill">Free organic produce box donations for Watts and South Central Los Angeles</div>
     </div>
     <div class="bg">
-      <img src="~/assets/background-website-foto.jpg" class="wallpaper" />
+      <img
+        src="~/assets/background-website-foto.jpg"
+        class="wallpaper"
+        @load="imageLoaded = true"
+      />
     </div>
   </div>
 </template>
@@ -18,6 +26,11 @@ import TitleLockup from '~/components/TitleLockup.vue'
 export default {
   components: {
     TitleLockup
+  },
+  data() {
+    return {
+      imageLoaded: false
+    }
   }
 }
 </script>
@@ -34,7 +47,9 @@ export default {
   color: $white;
 
   .container {
-    transform: translateY(5%);
+    transform: translateY(6.5%);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.24, 0.35, 0.17, 0.93) 0.6s;
   }
 
   .title-lockup {
@@ -54,6 +69,7 @@ export default {
     height: 100vh;
     width: 100vw;
     background-color: #49474a;
+    background-image: $red-green-gradient;
   }  
 
   .wallpaper {
@@ -61,6 +77,19 @@ export default {
     width: 100%;
     object-fit: cover;
     object-position: center;
-  }  
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  &.is-ready {
+    .wallpaper,
+    .container {
+      opacity: 1;
+    }
+
+    .container {
+      transform: translateY(5%);
+    }
+  }
 }
 </style>

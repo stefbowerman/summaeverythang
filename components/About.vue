@@ -5,7 +5,7 @@
         <div class="player__embed">
           <no-ssr>
             <vimeo-player
-              :video-id="425754677"
+              :video-id="493529471"
               :options="options"
             />
           </no-ssr>

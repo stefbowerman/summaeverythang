@@ -15,6 +15,9 @@
 </template>
 
 <script>
+import _kebabCase from 'lodash/kebabCase'
+import _throttle from 'lodash/throttle'
+
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 import DonationModal from '~/components/DonationModal.vue'
@@ -35,6 +38,8 @@ export default {
     return {
       bodyAttrs: {
         class: [
+          `route-${_kebabCase(this.$route.name || 'error')}`,
+          `${this.scrollTop > 5 ? "is-scrolled" : ""}`,
           `${this.$store.state.donationModalOpened ? "modal-open" : ""}`,
           `${this.$store.state.aboutModalOpened    ? "modal-open" : ""}`,
           `${this.$store.state.contactModalOpened  ? "modal-open" : ""}`,
@@ -45,13 +50,18 @@ export default {
   },
   data() {
     return {
-      audioStartTimeout: null
+      audioStartTimeout: null,
+      scrollTop: 0,
     }
   },
   mounted() {
     this.$refs.audio.volume = 0.5;
 
     this.audioStartTimeout = setTimeout(() => this.startAudio(), 1500);
+
+    window.addEventListener('scroll', _throttle(this.onScroll, 16))
+
+    this.onScroll()
 
     // Credits..
     if(console) {
@@ -90,6 +100,9 @@ export default {
       document.removeEventListener('mousemove', this.onInteraction)
 
       this.$refs.audio.volume = 0.5;
+    },
+    onScroll() {
+      this.scrollTop = window.pageYOffset || document.documentElement.scrollTop
     },
     startAudio() {
       const p = this.$refs.audio.play();

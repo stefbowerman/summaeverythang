@@ -58,8 +58,13 @@ footer {
 
   .donate-button__text {
     font-size: 13px;
-    max-width: 34em;
+    line-height: 1.5;
+    max-width: 60em;
     margin: 2em auto 0;
+
+    p {
+      margin: 0;
+    }
   }
 
   .contact {
