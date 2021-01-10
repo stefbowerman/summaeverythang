@@ -1,10 +1,14 @@
 <template>
   <div class="intro">
     <div class="intro-text">
+      <div class="container" style="max-width: 900px;">
+        <TitleLockup
+          :subtitle-style="true"
+        />
+      </div>
       <div class="container">
-        <h2>Summaeverythang</h2>
-        <p>is a community center based in South Central Los Angeles dedicated to the empowerment and transcendence of black and brown folks socio-politically, economically, intellectually and artistically.</p>
-        <p>Summaeverythang Community Center is a 501c3 nonprofit founded in 2019 by artist and fantasy architect, Lauren Halsey.</p>
+        <p>is a community center based in South Central Los Angeles dedicated to the empowerment and transcendence of black and brown folks socio-politically, economically, intellectually and artistically and is a charitable organization exempt from taxation under Internal Revenue Code Section 501(c)(3).</p> 
+        <p>A copy of Summaeverythang Community Center’s most recent financial information is available by contacting the organization at <a href="mailto:summaeverythang@gmail.com" target="_blank">summaeverythang@gmail.com</a></p>
         <DonateButton />
         <div class="bubble">The Summaeverythang Community Center is not currently seeking volunteers as we are keeping the team small due to concerns regarding COVID-19. However, please stay in touch!!</div>
       </div>
@@ -16,10 +20,12 @@
 </template>
 
 <script>
+import TitleLockup from '~/components/TitleLockup.vue'
 import DonateButton from '~/components/DonateButton.vue'
 
 export default {
   components: {
+    TitleLockup,
     DonateButton
   },
   methods: {
@@ -39,6 +45,10 @@ export default {
   @media (min-width: $screen-md-min) {
     flex-direction: row;
     align-items: stretch;
+  }
+
+  .title-lockup {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -65,7 +75,9 @@ export default {
 
 .intro-text {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   flex: 1.3;
   background-color: $green;
@@ -73,7 +85,7 @@ export default {
   color: $white;
   text-align: center;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.4;
   padding: 100px 0;
   letter-spacing: 0.04em;
 
@@ -132,7 +144,7 @@ export default {
     padding: 160px 0;
 
     h2 {
-      font-size: 43px;
+      font-size: 35px;
       margin-bottom: 13px;
     }
 
@@ -145,15 +157,14 @@ export default {
     flex: 1;
 
     font-size: 24px;
-    line-height: 1.4;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
 
     .container {
       max-width: none;
     }
 
     h2 {
-      font-size: 55px;
+      font-size: 39px;
     }    
   }
 }
