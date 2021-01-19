@@ -3,19 +3,22 @@
     <Hero />
     <Intro />
     <About />
+    <Gallery />
   </main>
 </template>
 
 <script>
-import Hero from '~/components/Hero.vue'
-import Intro from '~/components/Intro.vue'
-import About from '~/components/About.vue'
+import Hero from '~/components/Hero'
+import Intro from '~/components/Intro'
+import About from '~/components/About'
+import Gallery from '~/components/Gallery'
 
 export default {
   components: {
     Hero,
     Intro,
-    About
+    About,
+    Gallery
   },
   transition: 'fade'
 }

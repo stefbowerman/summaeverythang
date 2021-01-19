@@ -55,7 +55,6 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
   background-image: $red-green-gradient;
   padding: 120px 0 70px;
   padding-top: 0;
